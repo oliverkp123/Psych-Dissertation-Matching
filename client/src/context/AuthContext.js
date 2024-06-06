@@ -9,7 +9,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const login = async (username, password) => {
     const response = await axios.post(
-      "http://localhost:3001/auth/login",
+      `${process.env.REACT_APP_BACKEND_URL}/auth/login`,
       {
         username,
         password,
@@ -22,7 +22,7 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    await axios.get("http://localhost:3001/auth/logout", {
+    await axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/logout`, {
       withCredentials: true,
     });
     setUser(null);
@@ -30,7 +30,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/auth/user", {
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/auth/user`, {
         withCredentials: true,
       });
       setUser(response.data.userData);

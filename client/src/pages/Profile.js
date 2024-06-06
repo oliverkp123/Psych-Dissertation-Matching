@@ -56,7 +56,7 @@ export const Profile = () => {
     }
     try {
       const response = await axios.put(
-        `http://localhost:3001/update/${user.id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/update/${user.id}`,
         formData,
         {
           headers: {
@@ -81,7 +81,7 @@ export const Profile = () => {
     }
     try {
       const response = await axios.post(
-        "http://localhost:3001/auth/pass",
+        `${process.env.REACT_APP_BACKEND_URL}/auth/pass`,
         {
           currentPassword,
           newPassword,

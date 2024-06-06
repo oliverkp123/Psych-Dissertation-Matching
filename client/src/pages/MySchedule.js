@@ -15,7 +15,7 @@ export const MySchedule = () => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/meetings/byRole", { withCredentials: true })
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/meetings/byRole`, { withCredentials: true })
       .then((response) => {
         const meetings = response.data.filter(meeting => meeting.status === "Accepted");
         const formattedEvents = meetings.map((meeting) => ({

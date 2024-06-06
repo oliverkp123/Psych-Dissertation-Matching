@@ -16,8 +16,8 @@ export const Matches = () => {
   const fetchMatches = () => {
     setLoading(true);
     axios
-      .get("http://localhost:3001/matches/")
-      .then((response) => {
+    .get(`${process.env.REACT_APP_BACKEND_URL}/matches/`)
+    .then((response) => {
         setMatches(response.data);
         setLoading(false);
       })

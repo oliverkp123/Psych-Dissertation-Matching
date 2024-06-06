@@ -10,7 +10,7 @@ function Home() {
   useEffect(() => {
     fetchUser();
     axios
-      .get("http://localhost:3001/faculty")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/faculty`)
       .then((response) => {
         setListOfFaculty(response.data);
       })

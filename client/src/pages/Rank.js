@@ -13,19 +13,19 @@ function Rank() {
 
   useEffect(() => {
     if (user.role === 'faculty') {
-      axios.get('http://localhost:3001/students', { withCredentials: true }).then((response) => {
+      axios.get(`${process.env.REACT_APP_BACKEND_URL}/students`, { withCredentials: true }).then((response) => {
           setListOfUsers(response.data);
         }).catch((err) => {
           toast.error('Internal Server Error');
         });
     } else {
-      axios.get('http://localhost:3001/faculty', { withCredentials: true }).then((response) => {
+      axios.get(`${process.env.REACT_APP_BACKEND_URL}/faculty`, { withCredentials: true }).then((response) => {
           setListOfUsers(response.data);
         }).catch((err) => {
           toast.error('Internal Server Error');
         });
     }
-    axios.get('http://localhost:3001/rank/isSubmitted', { withCredentials: true }).then((response) => {
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/rank/isSubmitted`, { withCredentials: true }).then((response) => {
       setIsSubmitted(response.data.hasRankSubmitted)
     }).catch((err) => {
       toast.error('Internal Server Error.')
@@ -60,7 +60,7 @@ function Rank() {
         comments: commentBody[value.index]
       }));
       console.log(commentBody)
-      await axios.post('http://localhost:3001/rank/submit', rankingData,  {withCredentials: true});
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/rank/submit`, rankingData,  {withCredentials: true});
       setIsSubmitted(true);
       toast.success("Rank Submitted Successfully");
     } catch (error) {

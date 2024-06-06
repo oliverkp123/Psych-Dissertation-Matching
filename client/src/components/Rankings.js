@@ -18,7 +18,7 @@ export const Rankings = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/rank/studentrankings")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/rank/studentrankings`)
       .then((response) => {
         setStudentRankings(response.data);
       })
@@ -29,7 +29,7 @@ export const Rankings = () => {
       });
 
     axios
-      .get("http://localhost:3001/rank/facultyrankings")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/rank/facultyrankings`)
       .then((response) => {
         setFacultyRankings(response.data);
       })

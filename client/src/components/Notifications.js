@@ -10,7 +10,7 @@ function Notifications() {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/meetings/byRole", { withCredentials: true })
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/meetings/byRole`, { withCredentials: true })
       .then((response) => {
         setMeetings(response.data);
       }).catch((err) => {
@@ -24,7 +24,7 @@ function Notifications() {
 
   const handleAccept = async (meetingId) => {
     try {
-        await axios.put(`http://localhost:3001/meetings/accept`, { meetingId }, { withCredentials: true });
+        await axios.put(`${process.env.REACT_APP_BACKEND_URL}/meetings/accept`, { meetingId }, { withCredentials: true });
         toast.success("Meeting successfully accepted!");
 
     } catch (error) {
@@ -33,7 +33,7 @@ function Notifications() {
   };
   const handleDecline = async (meetingId) => {
     try {
-        await axios.put(`http://localhost:3001/meetings/decline`, { meetingId }, { withCredentials: true });
+        await axios.put(`${process.env.REACT_APP_BACKEND_URL}/meetings/decline`, { meetingId }, { withCredentials: true });
         toast.success("Meeting successfully declined!");
 
     } catch (error) {

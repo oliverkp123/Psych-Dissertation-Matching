@@ -29,7 +29,7 @@ function Schedule() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/faculty", { withCredentials: true })
+      .get(`${process.env.REACT_APP_BACKEND_URL}/faculty`, { withCredentials: true })
       .then((response) => {
         setListOfFaculty(response.data);
       })
@@ -59,7 +59,7 @@ function Schedule() {
 
     try {
       await axios.post(
-        "http://localhost:3001/meetings/schedule",
+        `${process.env.REACT_APP_BACKEND_URL}/meetings/schedule`,
         {
           startDate: startDateTime,
           endDate: endDateTime,

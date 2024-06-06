@@ -77,7 +77,7 @@ export const Admin = () => {
   };
   const fetchUsers = () => {
     axios
-      .get("http://localhost:3001/users", {
+      .get(`${process.env.REACT_APP_BACKEND_URL}/users`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -105,7 +105,7 @@ export const Admin = () => {
   const handleSubmit = async () => {
     try {
       const response = await axios.put(
-        "http://localhost:3001/admin/updateuser",
+        `${process.env.REACT_APP_BACKEND_URL}/admin/updateuser`,
         formData,
         {
           withCredentials: true,
@@ -124,7 +124,7 @@ export const Admin = () => {
   const handleDelete = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:3001/admin/deleteuser/${selectedUser.id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/admin/deleteuser/${selectedUser.id}`,
         {
           withCredentials: true,
         }
@@ -142,7 +142,7 @@ export const Admin = () => {
   const handleUserCreate = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/admin/createuser",
+        `${process.env.REACT_APP_BACKEND_URL}/admin/createuser`,
         createUserForm,
         {
           withCredentials: true,
