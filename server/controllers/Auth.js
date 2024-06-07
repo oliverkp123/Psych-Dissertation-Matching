@@ -35,6 +35,7 @@ async function login(req, res) {
             httpOnly: true,
             maxAge: 30 * 86400000,
             secure: true,
+            sameSite: "none",
             path: "/",
           })
           .status(200)
