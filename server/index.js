@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const port = process.env.PORT || 3001; 
 
 const db = require("./models");
 const cookieParser = require("cookie-parser");
@@ -32,7 +33,7 @@ const adminRouter = require("./routes/Admin");
 app.use("/admin", adminRouter);
 
 db.sequelize.sync().then(() => {
-  app.listen(port, "0.0.0.0", function () {
-    console.log("HEY FROM SERVER");
+  app.listen(port, "0.0.0.0", () => {
+    console.log(`Server is running on port ${port}`);
   });
 });
