@@ -32,7 +32,7 @@ const adminRouter = require("./routes/Admin");
 app.use("/admin", adminRouter);
 
 db.sequelize.sync().then(() => {
-  app.listen(3001, () => {
+  app.listen(port, "0.0.0.0", function () {
     console.log("HEY FROM SERVER");
   });
 });
