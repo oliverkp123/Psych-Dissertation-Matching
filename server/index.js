@@ -8,10 +8,8 @@ const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
-  origin: 'https://psych-dissertation-matching-git-main-oliverkp123s-projects.vercel.app',
+  origin: '*', // Allow all origins temporarily
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
 }));
 
 
