@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
-  origin: '*', // Allow all origins temporarily
+  origin: 'https://psych-dissertation-matching-production.up.railway.app/', 
   credentials: true,
 }));
 
