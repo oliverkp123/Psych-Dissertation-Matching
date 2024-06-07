@@ -8,7 +8,7 @@ const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
-  origin: 'https://psych-dissertation-matching-git-main-oliverkp123s-projects.vercel.app/',
+  origin: 'https://psych-dissertation-matching.vercel.app',
   credentials: true,
 }));
 
